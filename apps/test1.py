@@ -1,0 +1,12 @@
+import os
+import lamini
+from lamini import Lamini
+
+lamini_api_url= "https://api.lamini.ai/v1"
+
+lamini.api_url = os.getenv("lamini_api_url")
+lamini.api_key = os.getenv("lamini_api_key")
+
+non_finetuned = Lamini("meta-llama/Llama-2-7b-hf")
+
+print(non_finetuned.generate("Tell me how to train my dog to sit"))
